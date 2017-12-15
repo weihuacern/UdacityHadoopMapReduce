@@ -17,7 +17,7 @@ cd data
 wget http://content.udacity-data.com/courses/ud617/purchases.txt.gz
 wget http://content.udacity-data.com/courses/ud617/access_log.gz
 ```
-
+# L5 MapReduce Code
 # Local test without hadoop
 ```
 cd L5MapReduceCode
@@ -32,5 +32,14 @@ cat TestFile | ./mapper.py | sort | ./reducer.py
 /home/hua/hadoop-2.9.0/bin/hadoop fs -ls
 /home/hua/hadoop-2.9.0/bin/hadoop jar /home/hua/hadoop-2.9.0/share/hadoop/tools/lib/hadoop-streaming-2.9.0.jar -mapper mapper.py -reducer reducer.py -file mapper.py -file reducer.py -input TestFile -output Output
 /home/hua/hadoop-2.9.0/bin/hadoop jar /home/hua/hadoop-2.9.0/share/hadoop/tools/lib/hadoop-streaming-2.9.0.jar -mapper mapper.py -reducer reducer.py -file mapper.py -file reducer.py -input ../data/purchases.txt -output Output
+```
 
+# L6 Project
+
+```
+cd L6Project/Par1_Purchases
+cat ../TestFile | ./mapper_p1q1.py
+cat ../TestFile | ./mapper_p1q1.py | sort | ./reducer_p1q1.py
+/home/hua/hadoop-2.9.0/bin/hadoop jar /home/hua/hadoop-2.9.0/share/hadoop/tools/lib/hadoop-streaming-2.9.0.jar -mapper mapper_p1q1.py -reducer reducer_p1q1.py -file mapper_p1q1.py -file reducer_p1q1.py -input ../TestFile -output Output_p1q1
+/home/hua/hadoop-2.9.0/bin/hadoop jar /home/hua/hadoop-2.9.0/share/hadoop/tools/lib/hadoop-streaming-2.9.0.jar -mapper mapper_p1q1.py -reducer reducer_p1q1.py -file mapper_p1q1.py -file reducer_p1q1.py -input ../../data/purchases.txt -output Output_p1q1
 ```

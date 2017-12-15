@@ -20,7 +20,7 @@ wget http://content.udacity-data.com/courses/ud617/access_log.gz
 
 # Local test without hadoop
 ```
-cd L3MapReduceCode
+cd L5MapReduceCode
 head -n 50 ../data/purchases.txt >> TestFile
 cat TestFile
 cat TestFile | ./mapper.py

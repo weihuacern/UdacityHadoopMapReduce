@@ -3,7 +3,7 @@
 # but instead just ignores them and continues working
 import sys
 import io
-
+import re
 '''
 10.223.157.186 - - [15/Jul/2009:14:58:59 -0700] "GET / HTTP/1.1" 403 202
 10.223.157.186 - - [15/Jul/2009:14:58:59 -0700] "GET /favicon.ico HTTP/1.1" 404 209
@@ -31,30 +31,11 @@ import io
 def mapper():
   # read standard input line by line
   for line in sys.stdin:
-    # strip off extra whitespace, split on tab and put the data in an array
-    time_beg = line.find(" [")
-    time_end = line.find("] ")
-    #data = line[:time_beg].strip().split(" ")
-    #if len(data) != 3:
-    #  print (line)
-
-    ip, idc, usr = line[:time_beg].strip().split(" ")
-    time = line[time_beg+2:time_end]
-    req_beg = line.find("GET ")
-    req_end = line.find("HTTP")
-    req = line[req_beg+4:req_end]
-    fn = req.split('/')[-1]
-    #data = req.strip().split(" ")
-    #if len(data) != 2:
-      #print (req)
-    #last_beg = line.find("\" ")
-    #status, size = line[last_beg+2:].strip().split(" ")
-    # This is the place you need to do some defensive programming
-    # what if there are not exactly 6 fields in that line?
-    # YOUR CODE HERE
-    # Now print out the data that will be passed to the reducer
-    #print ( "{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}".format(ip, idc, usr, time, req, status, size) )
-    print ("{0}\t{1}".format(req,fn))
+    data = line.strip().split(" ")
+    if len(data) == 10:
+      ip_address, identity, username, datetime, timezone, method, path, proto, status, size = data
+      cleaned_path = re.sub(r"^http://www.the-associates.co.uk", '', path)
+    print ("{0}\t{1}".format(cleaned_path, 1))
    
 test_text = """10.223.157.186 - - [15/Jul/2009:14:58:59 -0700] "GET / HTTP/1.1" 403 202
 10.223.157.186 - - [15/Jul/2009:14:58:59 -0700] "GET /favicon.ico HTTP/1.1" 404 209

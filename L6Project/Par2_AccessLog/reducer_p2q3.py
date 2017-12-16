@@ -5,6 +5,8 @@ import math
 if __name__ == '__main__':
   CountTotal = 0
   oldKey = None
+  MostCount = 0
+  MostKey = None
 
   for line in sys.stdin:
     data = line.strip().split("\t")
@@ -14,12 +16,21 @@ if __name__ == '__main__':
 
     thisKey, thisCount = data
     if oldKey and oldKey != thisKey:
-      print (oldKey, "\t", CountTotal)
+      print ( oldKey, "\t", CountTotal )
+      if MostCount < CountTotal : 
+        MostCount = CountTotal
+        MostKey = oldKey
       oldKey = thisKey
       CountTotal = 0
 
     oldKey = thisKey
-    CountTotal += float(thisCount)
+    CountTotal += 1
 
   if oldKey != None:
-    print ( oldKey, "\t", format(CountTotal, '.2f') )
+    print ( oldKey, "\t", CountTotal )
+    if MostCount < CountTotal : 
+      MostCount = CountTotal
+      MostKey = oldKey
+
+print ("Most popular path: ", MostKey)
+print ("Count of most popular ", MostCount)

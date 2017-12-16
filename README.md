@@ -63,5 +63,8 @@ cat ../TestLog | ./mapper_p2q1.py | sort | ./reducer_p2q1.py
 cat ../TestLog | ./mapper_p2q2.py
 cat ../TestLog | ./mapper_p2q2.py | sort | ./reducer_p2q2.py                                                                                                                                                
 /home/hua/hadoop-2.9.0/bin/hadoop jar /home/hua/hadoop-2.9.0/share/hadoop/tools/lib/hadoop-streaming-2.9.0.jar -mapper mapper_p2q2.py -reducer reducer_p2q2.py -file mapper_p2q2.py -file reducer_p2q2.py -input ../../data/access_log -output Output_p2q2
+cat ../TestLog | ./mapper_p2q3.py
+cat ../TestLog | ./mapper_p2q3.py | sort | ./reducer_p2q3.py
+/home/hua/hadoop-2.9.0/bin/hadoop jar /home/hua/hadoop-2.9.0/share/hadoop/tools/lib/hadoop-streaming-2.9.0.jar -mapper mapper_p2q3.py -reducer reducer_p2q3.py -file mapper_p2q3.py -file reducer_p2q3.py -input ../../data/access_log -output Output_p2q3
 ```
 

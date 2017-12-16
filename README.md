@@ -45,5 +45,7 @@ cat ../TestFile | ./mapper_p1q1.py | sort | ./reducer_p1q1.py
 cat ../TestFile | ./mapper_p1q2.py
 cat ../TestFile | ./mapper_p1q2.py | sort | ./reducer_p1q2.py
 /home/hua/hadoop-2.9.0/bin/hadoop jar /home/hua/hadoop-2.9.0/share/hadoop/tools/lib/hadoop-streaming-2.9.0.jar -mapper mapper_p1q2.py -reducer reducer_p1q2.py -file mapper_p1q2.py -file reducer_p1q2.py -input ../../data/purchases.txt -output Output_p1q2
-
+cat ../TestFile | ./mapper_p1q3.py
+cat ../TestFile | ./mapper_p1q3.py | sort | ./reducer_p1q3.py
+/home/hua/hadoop-2.9.0/bin/hadoop jar /home/hua/hadoop-2.9.0/share/hadoop/tools/lib/hadoop-streaming-2.9.0.jar -mapper mapper_p1q3.py -reducer reducer_p1q3.py -file mapper_p1q3.py -file reducer_p1q3.py -input ../../data/purchases.txt -output Output_p1q
 ```

@@ -3,7 +3,7 @@ import sys
 import math
 
 if __name__ == '__main__':
-  salesTotal = 0
+  CountTotal = 0
   oldKey = None
 
   for line in sys.stdin:
@@ -14,13 +14,12 @@ if __name__ == '__main__':
 
     thisKey, thisCount = data
     if oldKey and oldKey != thisKey:
-      print (oldKey, "\t", salesTotal)
+      print (oldKey, "\t", CountTotal)
       oldKey = thisKey
-      salesTotal = 0
+      CountTotal = 0
 
     oldKey = thisKey
-    salesTotal += float(thisCount)
+    CountTotal += float(thisCount)
 
-  #salesTotal = round(salesTotal, 2)
   if oldKey != None:
-    print ( oldKey, "\t", format(salesTotal, '.2f') )
+    print ( oldKey, "\t", format(CountTotal, '.2f') )

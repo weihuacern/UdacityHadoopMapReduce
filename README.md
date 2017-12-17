@@ -68,12 +68,12 @@ cat ../TestLog | ./mapper_p2q3.py | sort | ./reducer_p2q3.py
 /home/hua/hadoop-2.9.0/bin/hadoop jar /home/hua/hadoop-2.9.0/share/hadoop/tools/lib/hadoop-streaming-2.9.0.jar -mapper mapper_p2q3.py -reducer reducer_p2q3.py -file mapper_p2q3.py -file reducer_p2q3.py -input ../../data/access_log -output Output_p2q3
 ```
 Note, the correct answer for part 2 quiz 3 is: 
-Most popular path:  /assets/css/combined.css
-Count of most popular  117352
+Most popular path:  /assets/css/combined.css;
+Count of most popular  117352;
 
 However, my solution is:
-Most popular path:  /assets/css/combined.css
-Count of most popular  117353
+Most popular path:  /assets/css/combined.css;
+Count of most popular  117353;
 
 # L7 MapReduce Design Patterns
 

@@ -73,4 +73,10 @@ Count of most popular  117352
 
 However, my solution is:
 Most popular path:  /assets/css/combined.css
-Count of most popular  117353 
+Count of most popular  117353
+
+# L7 MapReduce Design Patterns
+
+```
+cd L7MapReduceDesignPatterns
+```

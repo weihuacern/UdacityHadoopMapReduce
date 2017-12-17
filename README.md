@@ -79,4 +79,7 @@ Count of most popular  117353;
 
 ```
 cd L7MapReduceDesignPatterns
+cat Test/TestForumNode.tsv | ./Q1_FilteringExercise.py
+cat Test/TestForumNode.tsv | ./Q1_FilteringExercise.py | sort | ./Identity_reducer.py
+/home/hua/hadoop-2.9.0/bin/hadoop jar /home/hua/hadoop-2.9.0/share/hadoop/tools/lib/hadoop-streaming-2.9.0.jar -mapper Q1_FilteringExercise.py -reducer Identity_reducer.py -file Q1_FilteringExercise.py -file Identity_reducer.py -input ../data/forum_node.tsv -output Output_q1
 ```

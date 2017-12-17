@@ -27,11 +27,16 @@ def mapper():
   writer = csv.writer(sys.stdout, delimiter='\t', quotechar='"', quoting=csv.QUOTE_ALL)
 
   for line in reader:
-
     # YOUR CODE HERE
-            
-    writer.writerow(line)
-
+    body = line[4]
+    contains = body.count('.') + body.count('!') + body.count('?')
+    if contains == 0:
+      #writer.writerow(line)
+      print (line)
+    if contains == 1:
+      if body.endswith('.') or body.endswith('!') or body.endswith('?'):
+        #writer.writerow(line)
+        print (line)
 
 
 test_text = """\"\"\t\"\"\t\"\"\t\"\"\t\"This is one sentence\"\t\"\"
@@ -45,7 +50,7 @@ test_text = """\"\"\t\"\"\t\"\"\t\"\"\t\"This is one sentence\"\t\"\"
 # This function allows you to test the mapper with the provided test string
 def main():
   from io import StringIO
-  sys.stdin = io.StringIO(test_text)
+  #sys.stdin = io.StringIO(test_text)
   mapper()
   sys.stdin = sys.__stdin__
 

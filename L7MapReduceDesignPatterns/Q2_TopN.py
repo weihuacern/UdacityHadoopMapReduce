@@ -12,13 +12,23 @@ def mapper():
   reader = csv.reader(sys.stdin, delimiter='\t')
   writer = csv.writer(sys.stdout, delimiter='\t', quotechar='"', quoting=csv.QUOTE_ALL)
 
+  length_line_pair = []
   for line in reader:
-
     # YOUR CODE HERE
-        
-    writer.writerow(line)
+    length_line_pair.append([len(line[4]),line])
+    #print (line[4])
+    #writer.writerow(line)
 
-
+  N = 10
+  #Sort lineWithLength list in descending order,pick the top 10 
+  Top_N = sorted(length_line_pair, reverse = True)[0:N]    
+  #Sort the Top_N in ascending order to fit the output format
+  Top_N = sorted(Top_N, reverse = False)
+  #print (len(Top_N)) 
+  for record in Top_N:
+    #print("\n")
+    print(record[1])
+    #writer.writerow(record[1])
 
 test_text = """\"\"\t\"\"\t\"\"\t\"\"\t\"333\"\t\"\"
 \"\"\t\"\"\t\"\"\t\"\"\t\"88888888\"\t\"\"
@@ -36,7 +46,7 @@ test_text = """\"\"\t\"\"\t\"\"\t\"\"\t\"333\"\t\"\"
 # This function allows you to test the mapper with the provided test string
 def main():
   from io import StringIO
-  sys.stdin = io.StringIO(test_text)
+  #sys.stdin = io.StringIO(test_text)
   mapper()
   sys.stdin = sys.__stdin__
 

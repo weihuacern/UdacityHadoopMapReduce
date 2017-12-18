@@ -88,5 +88,8 @@ cat Test/TestForumNode.tsv | ./Q2_TopN.py | sort | ./Identity_reducer.py
 cat Test/TestForumNode.tsv | ./Q3_InvertedIndex_mapper.py
 cat Test/TestForumNode.tsv | ./Q3_InvertedIndex_mapper.py | sort | ./Q3_InvertedIndex_reducer.py
 /home/hua/hadoop-2.9.0/bin/hadoop jar /home/hua/hadoop-2.9.0/share/hadoop/tools/lib/hadoop-streaming-2.9.0.jar -mapper Q3_InvertedIndex_mapper.py -reducer Q3_InvertedIndex_reducer.py -file Q3_InvertedIndex_mapper.py -file Q3_InvertedIndex_reducer.py -input ../data/forum_node.tsv -output Output_q3
+cat ../L6Project/TestFile | ./Q4_Mean_mapper.py
+cat ../L6Project/TestFile | ./Q4_Mean_mapper.py | sort | ./Q4_Mean_reducer.py
+/home/hua/hadoop-2.9.0/bin/hadoop jar /home/hua/hadoop-2.9.0/share/hadoop/tools/lib/hadoop-streaming-2.9.0.jar -mapper Q4_Mean_mapper.py -reducer Q4_Mean_reducer.py -file Q4_Mean_mapper.py -file Q4_Mean_reducer.py -input ../data/purchases.txt -output Output_q4
 ```
 

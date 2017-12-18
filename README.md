@@ -85,5 +85,8 @@ cat Test/TestForumNode.tsv | ./Q1_FilteringExercise.py | sort | ./Identity_reduc
 cat Test/TestForumNode.tsv | ./Q2_TopN.py
 cat Test/TestForumNode.tsv | ./Q2_TopN.py | sort | ./Identity_reducer.py
 /home/hua/hadoop-2.9.0/bin/hadoop jar /home/hua/hadoop-2.9.0/share/hadoop/tools/lib/hadoop-streaming-2.9.0.jar -mapper Q2_TopN.py -reducer Identity_reducer.py -file Q2_TopN.py -file Identity_reducer.py -input ../data/forum_node.tsv -output Output_q2
+cat Test/TestForumNode.tsv | ./Q3_InvertedIndex_mapper.py
+cat Test/TestForumNode.tsv | ./Q3_InvertedIndex_mapper.py | sort | ./Q3_InvertedIndex_reducer.py
+/home/hua/hadoop-2.9.0/bin/hadoop jar /home/hua/hadoop-2.9.0/share/hadoop/tools/lib/hadoop-streaming-2.9.0.jar -mapper Q3_InvertedIndex_mapper.py -reducer Q3_InvertedIndex_reducer.py -file Q3_InvertedIndex_mapper.py -file Q3_InvertedIndex_reducer.py -input ../data/forum_node.tsv -output Output_q3
 ```
 
